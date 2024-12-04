@@ -1,3 +1,24 @@
+# Visual Studio-specific folders
+.vs/
+
+# Build output directories
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Backup & temporary files
+*.log
+*.tlog
+*.ide
+*.ipch
+*.lastbuildstate
+*.db
+
 # Prerequisites
 *.d
 
