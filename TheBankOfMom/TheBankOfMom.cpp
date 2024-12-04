@@ -16,23 +16,24 @@ using namespace std;
 
 
 void DisplayMenu() {
-    std::cout << "\n~The Bank of Mom~" << std::endl;
-    std::cout << "1. Create New Account" << std::endl;
-    std::cout << "2. Deposit Money" << std::endl;
-    std::cout << "3. Withdraw Money" << std::endl;
-    std::cout << "4. Check Balance" << std::endl;
-    std::cout << "5. View Transaction History" << std::endl;
-    std::cout << "6. Reset Account PIN" << std::endl;
-    std::cout << "7. Reset Parent PIN" << std::endl;
-    std::cout << "8. Exit" << std::endl;
-    std::cout << "Enter your choice: ";
+    cout << "\n~The Bank of Mom~" << endl;
+    cout << "1. Create New Account" << endl;
+    cout << "2. Deposit Money" << endl;
+    cout << "3. Withdraw Money" << endl;
+    cout << "4. Check Balance" << endl;
+    cout << "5. View Transaction History" << endl;
+    cout << "6. Reset Account PIN" << endl;
+    cout << "7. Reset Parent PIN" << endl;
+    cout << "8. Exit" << endl;
+    cout << "Enter your choice: ";
+}
 }
 
 int GetUserAccountNumber() {
     int accountNumber;
 
-    std::cout << "Enter Account Number: ";
-    std::cin >> accountNumber;
+    cout << "Enter Account Number: ";
+    cin >> accountNumber;
 
     return accountNumber;
 }
@@ -47,13 +48,13 @@ int main()
 
     do {
         DisplayMenu();
-        std::cin >> choice;
+        cin >> choice;
 
-        while (std::cin.fail() || choice < 1 || choice > 8) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Error: Invalid input. Please enter a number between 1 and 8. Try again:";
-            std::cin >> choice;
+        while (cin.fail() || choice < 1 || choice > 8) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Error: Invalid input. Please enter a number between 1 and 8. Try again:";
+            cin >> choice;
         }
 
         switch (choice) {
@@ -63,22 +64,22 @@ int main()
                 // create account and add to vector 
                 // displays sucess message and account details
         case 1: {
-            std::string name;
+            string name;
             int pin;
 
             Account newAccount;
 
-            std::cout << "Enter account name: ";
-            std::cin.ignore();
-            std::getline(std::cin, name);
+            cout << "Enter account name: ";
+            cin.ignore();
+            getline(cin, name);
 
             pin = newAccount.GetNewPin();
 
             newAccount = Account(name, pin);
             accounts.push_back(newAccount);
 
-            std::cout << "Accout Name: " << newAccount.GetAccountName() << "\nAccount Number: " << newAccount.GetAccountNumber() << std::endl;
-            std::cout << "Account created successfully!" << std::endl;
+            cout << "Accout Name: " << newAccount.GetAccountName() << "\nAccount Number: " << newAccount.GetAccountNumber() << endl;
+            cout << "Account created successfully!" << endl;
             break;
         }
 
@@ -98,11 +99,11 @@ int main()
                     acctPtr->Deposit(accounts);
                 }
                 else {
-                    std::cout << "Transaction Canceled" << std::endl;
+                    cout << "Transaction Canceled" << endl;
                 }
             }
             else {
-                std::cout << "Error: Account was not found." << std::endl;
+                cout << "Error: Account was not found." << endl;
             }
             break;
         }
@@ -123,11 +124,11 @@ int main()
                     acctPtr->Withdraw(accounts);
                 }
                 else {
-                    std::cout << "Transaction Canceled" << std::endl;
+                    cout << "Transaction Canceled" << endl;
                 }
             }
             else {
-                std::cout << "Error: Account was not found." << std::endl;
+                cout << "Error: Account was not found." << endl;
             }
             break;
         }
@@ -147,15 +148,15 @@ int main()
             if (acctPtr != nullptr) {
                 if (acctPtr->VerifyPin()) {
                     acctPtr->GetAccountBalance();
-                    std::cout << "Account Name: " << acctPtr->GetAccountName() << "\nAccount Number: " << acctPtr->GetAccountNumber();
-                    std::cout << "\nAccount Balance: " << std::fixed << std::setprecision(2) << acctPtr->GetAccountBalance() << std::endl;
+                    cout << "Account Name: " << acctPtr->GetAccountName() << "\nAccount Number: " << acctPtr->GetAccountNumber();
+                    cout << "\nAccount Balance: " << fixed << setprecision(2) << acctPtr->GetAccountBalance() << endl;
                 }
                 else {
-                    std::cout << "Transaction Canceled" << std::endl;
+                    cout << "Transaction Canceled" << endl;
                 }
             }
             else {
-                std::cout << "Error: Account was not found." << std::endl;
+                cout << "Error: Account was not found." << endl;
             }
             break;
 
@@ -177,11 +178,11 @@ int main()
                     acctPtr->GetTransactionHistory();
                 }
                 else {
-                    std::cout << "Transaction Canceled" << std::endl;
+                    cout << "Transaction Canceled" << endl;
                 }
             }
             else {
-                std::cout << "Error: Account was not found." << std::endl;
+                cout << "Error: Account was not found." << endl;
             }
             break;
         }
@@ -202,7 +203,7 @@ int main()
                 acctPtr->ResetAccountPin(accounts);
             }
             else {
-                std::cout << "Error: Account was not found." << std::endl;
+                cout << "Error: Account was not found." << endl;
             }
             break;
         }
@@ -220,7 +221,7 @@ int main()
         case 8: {
 
             Account::SaveAllAccounts(accounts);
-            std::cout << "Thank you. GoodBye!" << std::endl;
+            cout << "Thank you. GoodBye!" << endl;
             exit = true;
             break;
         }

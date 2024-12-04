@@ -18,7 +18,7 @@ class Account
 {
 private:
 	// variables
-	std::string accountName;
+	string accountName;
 	int accountPIN;
 	double accountBalance;
 
@@ -32,31 +32,31 @@ public:
 	Account();
 
 	// constructor 
-	Account(const std::string& name, const int& pin);
+	Account(const string& name, const int& pin);
 
 	// getters 
-	std::string GetAccountName() const;
+	string GetAccountName() const;
 	int GetAccountNumber() const;
 	double GetAccountBalance() const;
 	int GetNewPin() const;
 
 	// setters
-	void SetAccountName(const std::string& name);
-	void ResetAccountPin(std::vector<Account>& accounts);
+	void SetAccountName(const string& name);
+	void ResetAccountPin(vector<Account>& accounts);
 
 	// static methods
-	static void SaveAllAccounts(std::vector<Account>& accounts);
-	static void LoadAccounts(std::vector<Account>& accounts);
-	static Account* FindAccountByNum(std::vector<Account>& accounts, int acctNum);
+	static void SaveAllAccounts(vector<Account>& accounts);
+	static void LoadAccounts(vector<Account>& accounts);
+	static Account* FindAccountByNum(vector<Account>& accounts, int acctNum);
 	static void ResetParentPin();
 
 	// methods
-	void LogTransaction(const std::string& transType, double amount);
+	void LogTransaction(const string& transType, double amount);
 	void GetTransactionHistory() const;
-	bool ParentValidation(const std::string& transType, const double& amount);
+	bool ParentValidation(const string& transType, const double& amount);
 	bool VerifyPin() const;
-	void Deposit(std::vector<Account>& accounts);
-	void Withdraw(std::vector<Account>& accounts);
+	void Deposit(vector<Account>& accounts);
+	void Withdraw(vector<Account>& accounts);
 };
 
 #endif
