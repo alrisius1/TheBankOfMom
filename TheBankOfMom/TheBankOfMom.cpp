@@ -15,7 +15,8 @@
 using namespace std;
 
 
-void DisplayMenu() {
+void DisplayMenu() 
+{
     cout << "\n~The Bank of Mom~" << endl;
     cout << "1. Create New Account" << endl;
     cout << "2. Deposit Money" << endl;
@@ -27,9 +28,9 @@ void DisplayMenu() {
     cout << "8. Exit" << endl;
     cout << "Enter your choice: ";
 }
-}
 
-int GetUserAccountNumber() {
+int GetUserAccountNumber() 
+{
     int accountNumber;
 
     cout << "Enter Account Number: ";
@@ -40,7 +41,7 @@ int GetUserAccountNumber() {
 
 int main()
 {
-    std::vector<Account> accounts;
+    vector<Account> accounts;
     Account::LoadAccounts(accounts);
 
     int choice;
